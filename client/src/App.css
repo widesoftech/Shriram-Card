@@ -1,0 +1,7 @@
+@media (max-width: 425px) {
+  .img-crop {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+}
