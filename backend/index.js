@@ -14,7 +14,7 @@ const path = require("path");
 
 dotenv.config();
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT ;
 
 database.connect();
 
@@ -61,11 +61,11 @@ app.use("/api/v1/template", templateRoutes);
 // });
 
 
-app.use(express.static(path.join(path.resolve(), "client", "dist")));
+// app.use(express.static(path.join(path.resolve(), "client", "dist")));
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(path.resolve(), "client", "dist", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(path.resolve(), "client", "dist", "index.html"));
+// });
 
 app.listen(PORT, () => {
 	console.log(`App is listening at ${PORT}`);
