@@ -353,7 +353,7 @@ const FormsFields = () => {
 
   const handleSubmit = async () => {
     const data = await createFields(formData);
-    const link = `https://shriram-card.onrender.com/detailsform/${data._id}/${formData.role}`;
+    const link = `https://shriramcard.com/detailsform/${data._id}/${formData.role}`;
     setLinkURL(link);
   };
 

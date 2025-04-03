@@ -26,7 +26,7 @@ const AddTemplates = () => {
 
     try {
       const response = await axios.post(
-        "https://shriram-card.onrender.com/api/v1/template/upload",
+        "https://shriramcard.com/api/v1/template/upload",
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
