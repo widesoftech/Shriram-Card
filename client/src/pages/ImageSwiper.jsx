@@ -28,7 +28,7 @@ const ImageSwiper = () => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          "https://shriram-card.onrender.com/api/v1/template"
+          "http://localhost:5000/api/v1/template"
         );
         setImages(response.data);
       } catch (error) {
@@ -43,7 +43,7 @@ const ImageSwiper = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://shriram-card.onrender.com/api/v1/data/getAllEntryes"
+          "http://localhost:5000/api/v1/data/getAllEntryes"
         );
         setData(response.data.data);
       } catch (error) {
