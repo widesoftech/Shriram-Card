@@ -1,7 +1,7 @@
 // const BASE_URL = process.env.REACT_APP_BASE_URL;
 // const BASE_URL = `https://shriram-card.onrender.com/api/v1`
 // const BASE_URL = `http://localhost:5000/api/v1`
-const BASE_URL = `https://shriramcard.com/api/v1`
+const BASE_URL = `http://shriramcard.com/api/v1`
 
 // http://localhost:4000/api/v1/user/login
 export const userEndpoints = {
