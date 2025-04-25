@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(
     cors({
         // origin: "http://localhost:5173",
-        origin: "https://shriramcard.com",
+  origin: ['https://shriramcard.com', 'https://www.shriramcard.com']
         // origin: "https://shriram-card.onrender.com",
         methods: ["GET", "POST", "DELETE", "PUT"],
         allowedHeaders: [
