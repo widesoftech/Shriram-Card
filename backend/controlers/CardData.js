@@ -82,40 +82,78 @@ exports.saveCardData = async (req, res) => {
     }
 };
 
+// exports.getAllEntryes = async (req, res) => {
+//     // let page = Number(req.query.page) || 1
+//     // let limit = Number(req.query.limit) || 30
+
+//     const { page = 1, limit = 30 } = req.body;
+
+//     // console.log("inside getAllEntryes req.body : ", req.body);
+
+//     try {
+//         // console.log("insid function ")
+//         const data = await CardData.find().skip((page - 1) * limit).limit(limit).populate("formField").exec();
+//         // console.log("data ", data);
+
+//         if (!data) {
+//         res.status(404).json({
+//                 success: false,
+//                 message: "Data Not Present",
+//             })
+//         }
+
+//         return res.status(200).json({
+//             success: true,
+//             data,
+//             message: "Data Get Successfully"
+//         })
+//     }
+//     catch (error) {
+//         // console.log("Error : ", error);
+//         return res.status(500).json({
+//             success: false,
+//             message: "Internal Server Error",
+//         })
+//     }
+// }
+
+
+
+// new code 
+
+// Get All Entries (Fixed)
 exports.getAllEntryes = async (req, res) => {
-    // let page = Number(req.query.page) || 1
-    // let limit = Number(req.query.limit) || 30
-
-    const { page = 1, limit = 30 } = req.body;
-
-    // console.log("inside getAllEntryes req.body : ", req.body);
+    const page = Number(req.query.page) || 1;
+    const limit = Number(req.query.limit) || 3000000000000000;
 
     try {
-        // console.log("insid function ")
-        const data = await CardData.find().skip((page - 1) * limit).limit(limit).populate("formField").exec();
-        // console.log("data ", data);
+        const data = await CardData.find()
+            .skip((page - 1) * limit)
+            .limit(limit)
+            .populate("formField")
+            .exec();
 
-        if (!data) {
-        res.status(404).json({
+        if (!data || data.length === 0) {
+            return res.status(404).json({
                 success: false,
                 message: "Data Not Present",
-            })
+            });
         }
 
         return res.status(200).json({
             success: true,
             data,
-            message: "Data Get Successfully"
-        })
-    }
-    catch (error) {
-        // console.log("Error : ", error);
+            message: "Data fetched successfully.",
+        });
+    } catch (error) {
+        console.error("Error fetching entries:", error);
         return res.status(500).json({
             success: false,
             message: "Internal Server Error",
-        })
+        });
     }
-}
+};
+
 
 exports.getDataBySchoolName = async (req, res) => {
     const { schoolName, page, limit } = req.body.data;
