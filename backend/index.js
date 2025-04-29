@@ -43,7 +43,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: ['https://shriramcard.com', 'https://www.shriramcard.com'],
+    origin: ['https://shriramcard.com', 'https://www.shriramcard.com','*'],
     credentials: true,
     methods: ["GET", "POST", "DELETE", "PUT"],
     allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
