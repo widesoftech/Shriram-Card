@@ -1342,7 +1342,7 @@ const ImageSwiper = () => {
     const fetchImages = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/template"
+          "https://www.shriramcard.com/api/v1/template"
         );
         setImages(response.data);
       } catch (error) {
@@ -1357,7 +1357,7 @@ const ImageSwiper = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/data/getAllEntryes"
+          "https://www.shriramcard.com/api/v1/data/getAllEntryes"
         );
         // setData(response.data.data);
         const entries = response.data.data; // <-- make sure you're accessing `.data.data`
@@ -1471,7 +1471,7 @@ const ImageSwiper = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/v1/data/delete/${id}`);
+      await axios.delete(`https://www.shriramcard.com/api/v1/data/delete/${id}`);
       toast.success("Card Deleted");
       setData((prevData) => prevData.filter((item) => item._id !== id));
     } catch (error) {
