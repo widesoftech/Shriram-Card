@@ -41,14 +41,30 @@ app.use(express.json());
 //     })
 // );
 
-app.use(
-  cors({
-    origin: ['https://shriramcard.com', 'https://www.shriramcard.com','*'],
-    credentials: true,
-    methods: ["GET", "POST", "DELETE", "PUT"],
-    allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: ['https://shriramcard.com', 'https://www.shriramcard.com'],
+//     credentials: true,
+//     methods: ["GET", "POST", "DELETE", "PUT"],
+//     allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
+//   })
+// );
+
+const allowedOrigins = ['https://shriramcard.com', 'https://www.shriramcard.com'];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "DELETE", "PUT"],
+  allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
+}));
+
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*");
