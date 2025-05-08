@@ -333,12 +333,12 @@ const FormsFields = () => {
     // const maxSelections = formData.role === 'Student' ? 7 : 10;
     const maxSelections =
       formData.role === "Student"
-        ? 7
+        ? 10
         : formData.role === "Staff"
-        ? 7
+        ? 10
         : formData.role === "Employee"
-        ? 7
-        : 10;
+        ? 10
+        : 15;
 
     if (checked && selectedCount >= maxSelections) {
       toast.error(`Max ${maxSelections} selections allowed`);
