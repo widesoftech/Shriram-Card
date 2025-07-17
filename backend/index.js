@@ -53,13 +53,7 @@ app.use(express.json());
 const allowedOrigins = ['https://shriramcard.com', 'https://www.shriramcard.com'];
 
 app.use(cors({
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: "*,
   credentials: true,
   methods: ["GET", "POST", "DELETE", "PUT"],
   allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
